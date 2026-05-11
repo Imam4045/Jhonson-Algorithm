@@ -4,7 +4,7 @@ This project is a console-based implementation of Johnson's Algorithm written in
 
 ---
 
-## 📚 Table of Contents
+## 📋 Table of Contents
 
 - [What This Program Can Do](#-what-this-program-can-do)
 - [How The Algorithm Works](#-how-the-algorithm-works)
@@ -24,23 +24,23 @@ This project is a console-based implementation of Johnson's Algorithm written in
 ## 🚀 What This Program Can Do
 
 - Detect negative-weight cycles using the Bellman-Ford algorithm
-- Re-weight all edges to eliminate negative weights while preserving shortest path properties
-- Compute shortest paths between every pair of vertices using Dijkstra's algorithm
+- Adjust all edge weights so none of them are negative anymore, without changing which path is actually the shortest
+- Find the shortest path between every pair of points using Dijkstra's method
 - Handle graphs with negative edge weights (but no negative cycles)
-- Report "No path" for any pair of vertices with no valid route
+- Show "No path" when there's simply no way to get from one point to another
 - Immediately terminate and report if a negative-weight cycle is detected
 
 ---
 
-## 🧠 How The Algorithm Works
+## 🔍 How The Algorithm Works
 
-Johnson's Algorithm finds the shortest path between **every pair of vertices** in a weighted directed graph. It combines Bellman-Ford and Dijkstra. Bellman-Ford runs **once** to handle negative weights, then the faster Dijkstra handles the rest.
+Johnson's Algorithm finds the shortest path between **every pair of vertices** in a weighted directed graph. It combines Bellman-Ford and Dijkstra. Bellman-Ford runs **once** to deal with any negative weights, and then the quicker Dijkstra takes care of the rest.
 
 - **Step 1:** Add a temporary source node with zero-weight edges to all vertices
-- **Step 2:** Run Bellman-Ford to compute a potential value `h[v]` for each vertex and detect any negative-weight cycles
+- **Step 2:** Run Bellman-Ford to calculate a helper value `h[v]` for each vertex and detect any negative-weight cycles
 - **Step 3:** Re-weight every edge using `new weight = old weight + h[u] − h[v]` so all weights become non-negative
 - **Step 4:** Run Dijkstra from every vertex on the re-weighted graph
-- **Step 5:** Recover true distances using `true distance = dijkstra result − h[u] + h[v]`
+- **Step 5:** Convert the results back to the real distances using `true distance = dijkstra result − h[u] + h[v]`
 
 ---
 
@@ -135,7 +135,7 @@ After that, enter each directed edge on a new line in this format:
 
 ---
 
-## 🧪 Sample Output
+## ▶️ Sample Output
 
 ### When there is no negative cycle
 
@@ -170,9 +170,9 @@ After that, enter each directed edge on a new line in this format:
 ## 📝 Important Notes
 
 - Vertices must be **0-indexed** starting from `0`.
-- The algorithm works only on **directed** graphs.
+- This algorithm only works on **one-way (directed)** graphs.
 - Negative edge weights are **allowed** but negative-weight **cycles** will cause the program to terminate early.
-- The self-distance for every vertex (from any node to itself) is always **0**.
+- The distance from any point back to itself is always **0**.
 - Always enter the number of vertices and edges correctly before inputting edges.
 
 ---
@@ -197,6 +197,6 @@ This project is licensed under the [MIT License](./LICENSE).
 
 ---
 
-## 📬 Contact
+## 📧 Contact
 
 If you have any questions or concerns, please don't hesitate to contact me via email at imam220826@gmail.com

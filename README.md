@@ -174,6 +174,7 @@ After that, enter each directed edge on a new line in this format:
 - Negative edge weights are **allowed** but negative-weight **cycles** will cause the program to terminate early.
 - The distance from any point back to itself is always **0**.
 - Always enter the number of vertices and edges correctly before inputting edges.
+- The program calls `system("pause")` at the end, which **only works on Windows**. If you're on Linux or macOS, you can remove that line before compiling.
 
 ---
 

@@ -46,7 +46,7 @@ vector<int> dijkstra(const vector<vector<pair<int, int>>> &graph, int src) {
 
     dist[src] = 0;
     pq.push({0, src});
-            // distance , node name
+    
     // bfs
     while (!pq.empty()) { 
         int u = pq.top().second; // node itself
@@ -56,7 +56,7 @@ vector<int> dijkstra(const vector<vector<pair<int, int>>> &graph, int src) {
         visited[u] = true;
     
         for (auto &edge : graph[u]) {  
-            int v = edge.first, weight = edge.second;  // first is V is 2nd is weght
+            int v = edge.first, weight = edge.second;
             if (dist[v] > dist[u] + weight) {
                 dist[v] = dist[u] + weight;
                 pq.push({dist[v], v});
@@ -107,10 +107,10 @@ void johnson(const vector<vector<pair<int, int>>> &graph) {
 }
 
 int main() {
-    int V, E; // Number of vertices
-    cout << "Vertices: ";
+    int V, E;
+    cout << "Vertices: " << flush;   
     cin >> V;
-    cout << "Edges: ";
+    cout << "Edges: " << flush;
     cin >> E;
 
     // Graph represented as adjacency list
@@ -130,8 +130,6 @@ int main() {
 
 
     johnson(graph);
+    system("pause");
     return 0;
 }
-
-
-

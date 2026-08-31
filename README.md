@@ -17,7 +17,6 @@ This project is a console-based implementation of Johnson's Algorithm written in
 - [Requirements](#%EF%B8%8F-requirements)
 - [Contributing](#-contributing)
 - [License](#-license)
-- [Contact](#-contact)
 
 ---
 
